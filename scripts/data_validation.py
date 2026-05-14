@@ -1,3 +1,18 @@
+"""
+Data validation script for the coffee shop sales dataset.
+
+Purpose:
+Validate data quality before exploratory analysis by checking:
+        - dataset structure and data types
+        - duplicate records
+        - unit price integrity
+        - transaction date and time coverage
+        - transaction quantities anomalies
+
+Dataset:
+Coffee Shop Sales (source: Kaggle)
+"""
+
 # import libraries
 import pandas as pd
 from pathlib import Path
