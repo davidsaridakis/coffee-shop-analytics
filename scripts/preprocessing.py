@@ -7,6 +7,9 @@ Clean and enrich the dataset, and add feature engineering
     - create binary flag for weekday / weekend 
     - extract hour from transaction times 
 
+Output:
+cafe_transactions_processed.csv
+
 Dataset:
 Coffee Shop Sales (source: Kaggle)
 """
@@ -37,9 +40,16 @@ df['is_weekend'] = (
     .astype(int)
 )
 
+# Add day of the week column
+df['day_of_week'] = (
+    df['transaction_date']
+    .dt.weekday
+)
+
 # Parse transaction times
 parsed_times = (pd.to_datetime(
     df['transaction_time'].astype(str),
+    format='%H:%M:%S',
     errors='coerce')
 )
 
