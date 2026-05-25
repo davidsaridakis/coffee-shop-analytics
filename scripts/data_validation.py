@@ -45,7 +45,7 @@ print("\nNegative or zero priced product(s):",
       (df['unit_price'] <= 0).sum())
 
 print(
-    "\nHighest proed product(s):",
+    "\nHighest priced product(s):",
     df.loc[
         df['unit_price'] == df['unit_price'].max(), 
         "product_detail"
