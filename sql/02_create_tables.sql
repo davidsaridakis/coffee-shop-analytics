@@ -2,13 +2,15 @@
 -- CREATE TABLES
 -- ----------------------------------------
 
--- Drop tables if they already exist
+-- Remove tables if they already exist to ensure fresh 
+-- schema build
 DROP TABLE IF EXISTS fact_transactions;
 DROP TABLE IF EXISTS dim_products;
 DROP TABLE IF EXISTS dim_stores;
 DROP TABLE IF EXISTS stg_cafe_transactions;
 
--- Create staging table
+-- Create staging table. Safety buffer between the raw
+-- data and the production data. 
 CREATE TABLE stg_cafe_transactions(
 	transaction_id INT,
 	transaction_date DATE,

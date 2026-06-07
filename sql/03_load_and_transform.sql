@@ -5,8 +5,8 @@
 -- Remove all rows from database tables to avoid duplication
 -- NOTE: delete the dependent tables first
 TRUNCATE TABLE 
-    fact_transactions
-    dim_stores
+    fact_transactions,
+    dim_stores,
     dim_products;
 
 
