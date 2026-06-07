@@ -59,7 +59,7 @@ WHERE dp.product_id IS NULL;
 -- 6. Revenue Transformation Validation
 -- ------------------------------------
 SELECT
-    COUNT(*)
+    COUNT(*) AS invalid_revenue_rows
 FROM fact_transactions
 WHERE line_revenue <> unit_price * transaction_qty; 
 
