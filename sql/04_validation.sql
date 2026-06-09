@@ -1,6 +1,12 @@
--- ====================================
--- Validate newly populated tables
--- ====================================
+-- ==================================================
+-- Coffee Shop Analytics
+-- File: 04_validation.sql
+--
+-- Purpose:
+-- Validate loaded data and verify row counts,
+-- key integrity, referential integrity and 
+-- transformation accuracy.
+-- ==================================================
 
 -- ------------------------------------
 -- 1. Row Count Validation
@@ -8,7 +14,6 @@
 SELECT
     (SELECT COUNT(*) FROM stg_cafe_transactions) AS staging_row_count,
     (SELECT COUNT(*) FROM fact_transactions) AS fact_transactions_count;
-
 
 
 -- ------------------------------------
@@ -21,6 +26,7 @@ SELECT
 SELECT
     (SELECT COUNT(DISTINCT product_id) FROM stg_cafe_transactions) AS staging_product_count,
     (SELECT COUNT(*) FROM dim_products) AS dim_products_count; 
+
 
 -- ------------------------------------
 -- 3. Primary Key Validation
@@ -40,6 +46,7 @@ SELECT
     (SELECT COUNT(*) FROM fact_transactions WHERE product_id IS NULL) AS product_id_null_count,
     (SELECT COUNT(*) FROM fact_transactions WHERE store_id IS NULL) AS store_id_null_count;
 
+
 -- ------------------------------------
 -- 5. Referential Integrity Validation
 -- ------------------------------------
@@ -54,6 +61,7 @@ FROM fact_transactions AS ft
 LEFT JOIN dim_products AS dp
     ON ft.product_id = dp.product_id
 WHERE dp.product_id IS NULL;
+
 
 -- ------------------------------------
 -- 6. Revenue Transformation Validation

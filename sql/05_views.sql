@@ -1,6 +1,6 @@
 -- =============================================
 -- Coffee Shop Analytics
--- File: 04_views.sql
+-- File: 05_views.sql
 -- =============================================
 -- Purpose:
 -- Create reusable reporting views that simplify
@@ -8,6 +8,13 @@
 -- joins and aggregations.
 --
 -- Views:
+-- v_daily_hourly_sales_base
+--      Daily hourly transaction, revenue and 
+--      volume metrics.
+-- 
+-- v_product_sales_reporting
+--      Transactional sales data enriched with 
+--      product attributes.
 -- --------------------------------------------------
 -- Create reusable reporting view containing hourly
 -- transaction, revenue and volume metrics

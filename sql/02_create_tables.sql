@@ -1,6 +1,11 @@
--- ----------------------------------------
--- CREATE TABLES
--- ----------------------------------------
+-- ==================================================
+-- Coffee Shop Analytics
+-- File: 02_create_tables.sql
+--
+-- Purpose:
+-- Create empty staging, fact and dimension tables
+-- required for the analytical data model.
+-- ==================================================
 
 -- Remove tables if they already exist to ensure fresh 
 -- schema build

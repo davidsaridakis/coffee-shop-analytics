@@ -1,6 +1,12 @@
--- --------------------------------------------
--- Load and Transform Data
--- --------------------------------------------
+-- ==================================================
+-- Coffee Shop Analytics
+-- File: 03_load_and_transform.sql
+--
+-- Purpose:
+-- Load transactional data from the staging table,
+-- populate dimension tables and create analytical
+-- fact records.
+-- ==================================================
 
 -- Remove all rows from database tables to avoid duplication
 -- NOTE: delete the dependent tables first
