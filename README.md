@@ -1,258 +1,111 @@
-# ☕ Coffee Shop Sales Analytics
+# ☕ Operational Analytics for Small Hospitality Businesses
 
-An end-to-end data analytics project demonstrating data engineering, SQL development, Python data processing, and business intelligence reporting using a real-world transactional coffee shop dataset.
+## Can transaction data improve operational decisions traditionally driven by intuition?
 
-> **Status:** Dashboard section currently being completed in Power BI. Screenshots will be added once the reporting layer is finalized.
+### Project Overview
 
----
+Hospitality has always been an industry built on experience. Managers learn when to schedule staff, what products to prepare, and how to organise the day largely through observation and intuition. Having worked in hospitality myself—and having grown up around my mother's café—I wanted to explore a simple question:
 
-# Project Overview
+> **Can transaction data validate, challenge, or improve those instinctive decisions?**
 
-This project explores coffee shop transactional sales data to identify customer purchasing behaviour, operational trends, and business opportunities.
+This project uses a public Kaggle coffee shop dataset as a stand-in for a small independent café. Rather than treating it as a typical sales analysis exercise, I approached it as an operational business case.
 
-The project was designed to demonstrate a complete analytics workflow, including:
-
-- Data cleaning and preprocessing
-- Data validation
-- Feature engineering
-- Relational database design
-- SQL data transformation
-- Business-focused SQL analysis
-- Power BI dashboard development
-
-Rather than only answering business questions, the project also showcases practical data engineering techniques and analytical best practices.
+The objective was not simply to identify what sold the most, but to investigate whether historical transaction data could support better day-to-day operational decisions around product focus, staffing, and the daily rhythm of the business.
 
 ---
 
-# Business Objectives
+## The Business Question
 
-The analysis focuses on answering questions such as:
+The project was built around one central question:
 
-- When are the busiest trading hours?
-- How does customer demand differ between weekdays and weekends?
-- Which product categories generate the highest revenue?
-- Which hours require additional staffing?
-- How should bakery production be scheduled?
-- Where are opportunities for time-based promotions?
+**Can data analysis provide better operational guidance than intuition alone?**
 
----
+To answer this, the analysis focused on three areas that directly influence the running of a hospitality business.
 
-# Tech Stack
+### Product Strategy
 
-| Tool | Purpose |
-|-------|----------|
-| Python | Data preprocessing & validation |
-| Pandas | Data cleaning and feature engineering |
-| PostgreSQL | Data warehouse & SQL analytics |
-| SQL | ETL, views and business analysis |
-| Power BI | Dashboarding & visualisation |
-| Jupyter Notebook | Exploratory Data Analysis |
-| Git / GitHub | Version control |
+Which products genuinely drive revenue?
 
----
+Can transaction data help identify products that deserve greater operational focus, promotion, or menu simplification?
 
-# Dataset
+### Staffing & Capacity Planning
 
-**Coffee Shop Sales Dataset**
+How does customer demand change throughout the trading day?
 
-Source:
-https://www.kaggle.com/datasets
+Are staffing decisions supported by demand patterns, or are they based on assumptions?
 
-The dataset contains transactional coffee shop sales including:
+### Daily Operational Rhythm
 
-- Products
-- Categories
-- Transaction dates
-- Transaction times
-- Quantities
-- Unit prices
-- Store locations
+Does the business follow predictable trading patterns?
+
+Can transaction data help inform preparation schedules, operational timing, and daily workflow?
+
+Rather than beginning with the data, the project began with these business questions. The analysis was then designed to answer them.
 
 ---
 
-# Project Structure
+## Why This Project Was Built
 
-```text
-coffee-shop-analytics/
-│
-├── data/
-│   ├── raw/
-│   └── processed/
-│
-├── notebooks/
-│   └── exploratory_analysis.ipynb
-│
-├── python/
-│   ├── excel_to_csv.py
-│   ├── preprocessing.py
-│   └── data_validation.py
-│
-├── sql/
-│   ├── 01_init_db.sql
-│   ├── 02_create_tables.sql
-│   ├── 03_load_and_transform.sql
-│   ├── 04_validation.sql
-│   ├── 05_views.sql
-│   └── 06_business_analysis.sql
-│
-├── powerbi/
-│   └── Coffee Shop Analytics.pbix
-│
-└── README.md
+This project intentionally demonstrates the same analytical workflow across multiple technologies.
+
+The business problem remains constant, while the implementation changes.
+
+* **Python** was used to validate, clean, and engineer analytical features.
+* **PostgreSQL** was used to model the data, create reusable reporting views, and answer business questions using SQL.
+* **Power BI** recreates the reporting layer to demonstrate dashboard development and Power Query transformations.
+
+Rebuilding the workflow in each environment was a deliberate learning exercise to demonstrate different analytical approaches rather than replicate a production pipeline.
+
+---
+
+## Technical Workflow
+
 ```
-
----
-
-# Project Workflow
-
-```text
-Raw Excel Dataset
-        │
-        ▼
-Python Cleaning & Validation
-        │
-        ▼
+Business Questions
+        ↓
+Data Validation
+        ↓
 Feature Engineering
-        │
-        ▼
-Processed Dataset
-        │
-        ▼
-PostgreSQL Database
-        │
-        ▼
-Star Schema + Views
-        │
-        ▼
-Business SQL Queries
-        │
-        ▼
-Power BI Dashboard
+        ↓
+Database Modelling
+        ↓
+Business Analysis
+        ↓
+Interactive Reporting
 ```
 
----
-
-# Python Data Preparation
-
-Python was used to prepare the dataset before loading into PostgreSQL.
-
-Tasks included:
-
-- Converting Excel to CSV
-- Data validation
-- Duplicate checking
-- Data type verification
-- Feature engineering
-- Revenue calculation
-- Weekend flag creation
-- Transaction hour extraction
+Every transformation, SQL query, and dashboard visual was created to support a business question rather than simply explore the dataset.
 
 ---
 
-# SQL Development
+## About the Dataset
 
-The SQL component includes:
+This project uses the publicly available **Coffee Shop Sales** dataset from Kaggle.
 
-- Database creation
-- Table creation
-- Data loading
-- Validation queries
-- Reusable reporting views
-- Business analysis queries
+Although the dataset is not taken from a real business that I have worked with, the analytical questions, feature engineering decisions, and business interpretation were informed by my experience in hospitality and my understanding of how small cafés operate.
 
-The reporting layer is designed around reusable SQL views that can be connected directly to Power BI.
+The emphasis of the project is therefore not on handling messy real-world data, but on demonstrating how analytical techniques can be applied to operational decision-making.
 
 ---
 
-# Exploratory Data Analysis
+## Current Status
 
-Exploratory analysis was completed in Jupyter Notebook to understand:
+* ✅ Python preprocessing and validation
+* ✅ PostgreSQL database design
+* ✅ SQL business analysis
+* ✅ Exploratory analysis
+* 🚧 Power BI dashboard (currently being finalised)
 
-- Sales distributions
-- Product performance
-- Peak trading periods
-- Customer purchasing patterns
-- Category trends
-
----
-
-# Power BI Dashboard
-
-**Dashboard screenshots will be added once complete.**
-
-Planned dashboard pages include:
-
-- Executive Sales Overview
-- Revenue by Product Category
-- Hourly Sales Trends
-- Weekday vs Weekend Analysis
-- Product Performance
-- Operational Insights
-
-### Dashboard Preview
-
-*(Insert screenshots here)*
+Dashboard screenshots and reporting examples will be added once the Power BI section is complete.
 
 ---
 
-# Key Insights
+## What I Learned
 
-The analysis identified several operational trends including:
+One of the biggest lessons from this project is that analytics and experience are not competing approaches.
 
-- Morning hours generate the highest customer demand.
-- Coffee and bakery products dominate breakfast sales.
-- Average hourly demand provides more meaningful staffing insights than total transaction counts.
-- Weekday and weekend purchasing patterns differ significantly.
-- Demand is concentrated within a relatively small number of trading hours.
+Good operational intuition often comes from years of observing customers and understanding how a business functions.
 
----
+Data analysis provides a way to test those assumptions, uncover patterns that may otherwise be missed, and support decisions with evidence.
 
-# Business Recommendations
-
-Based on the analysis:
-
-- Increase staffing during morning peak periods.
-- Schedule bakery preparation before breakfast demand.
-- Focus promotions around breakfast and coffee bundles.
-- Use average hourly demand for workforce planning instead of daily totals.
-
----
-
-# Skills Demonstrated
-
-- Data Cleaning
-- Feature Engineering
-- Data Validation
-- ETL Development
-- PostgreSQL
-- SQL Analytics
-- Star Schema Design
-- Data Modelling
-- Business Intelligence
-- Power BI
-- Python (Pandas)
-- Exploratory Data Analysis
-- Git Version Control
-
----
-
-# Future Improvements
-
-- Complete interactive Power BI dashboard
-- Add DAX measures
-- Implement Power Query transformations
-- Publish dashboard to Power BI Service
-- Add incremental refresh
-- Introduce forecasting models
-
----
-
-# Author
-
-**Your Name**
-
-Aspiring Data Analyst | SQL | Python | Power BI | PostgreSQL
-
-LinkedIn: *(Add your profile)*
-
-GitHub: *(Add your profile)*
+For me, that is where analytics creates the most value—not by replacing experience, but by strengthening it.
