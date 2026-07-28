@@ -95,6 +95,47 @@ GROUP BY product_category
 ORDER BY total_units_sold DESC;
 
 
+-- ---------------------------------------------------------
+-- Product Category Contribution
+-- ---------------------------------------------------------
+-- Which product categories contribute disproportionately 
+-- to revenue relative to their sales volume?
+-- ---------------------------------------------------------
+SELECT
+    product_category,
+    SUM(line_revenue) AS total_revenue,
+    SUM(transaction_qty) AS total_units_sold,
+
+    ROUND(
+        100.0 * SUM(line_revenue)
+        / SUM(SUM(line_revenue)) OVER (),
+        2
+    ) AS revenue_share_pct,
+
+    ROUND(
+        100.0 * SUM(transaction_qty)
+        / SUM(SUM(transaction_qty)) OVER (),
+        2
+    ) AS volume_share_pct,
+
+    ROUND(
+        (
+            100.0 * SUM(line_revenue)
+            / SUM(SUM(line_revenue)) OVER ()
+        ) -
+        (
+            100.0 * SUM(transaction_qty)
+            / SUM(SUM(transaction_qty)) OVER ()
+        ),
+        2
+    ) AS share_difference
+
+FROM v_product_sales_reporting
+GROUP BY product_category
+ORDER BY revenue_share_pct DESC;
+
+
+
 -- ------------------------------------
 -- Category Sales Behaviour over Time
 -- ------------------------------------
